@@ -43,11 +43,14 @@ class ClientHandler extends Thread {
 
     public void run() {
         try {
-            out.writeUTF("Bem-vindo ao CHAT-UFPB! Digite seu nome:");
+            out.writeUTF("--------------------------------\n"+
+                            "   Bem-vindo ao CHAT-UFPB!\n"+
+                            "--------------------------------\n"+
+                            "Digite seu nome:");
             String clientName = in.readUTF();
             clientMap.put(clientSocket, clientName);
 
-            broadcast(clientName + " entrou no chat.");
+            broadcast(">>>> "+clientName + " entrou no chat <<<<");
 
             while (true) {
                 String message = in.readUTF();
